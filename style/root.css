@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    --corner-marker-color: rgba(255, 255, 255, 0.5);
+    --corner-marker-angle: -135deg;
+    --corner-marker-angle-reverse: 45deg;
+    --corner-marker: linear-gradient(var(--corner-marker-angle), var(--corner-marker-color) 5px, transparent 5px);
+    --corner-marker-black: linear-gradient(-135deg, #CCC 5px, transparent 5px);
+}
+
+:root {
+    --color-general-light-theme-1: hsl(203, 100%, 97%);
+    --color-general-light-theme-2: hsl(202, 86%, 91%);
+    --color-general-light-theme-3: hsl(201, 82%, 85%);
+    --color-general-light-theme-4: hsl(201, 81%, 75%);
+    --color-general-light-theme-5: hsl(202, 81%, 65%);
+    --color-general-light-theme-6: hsl(202, 81%, 59%);
+    --color-general-light-theme-7: hsl(202, 69%, 47%);
+    --color-general-light-theme-8: hsl(205, 74%, 39%);
+    --color-general-light-theme-9: hsl(211, 85%, 28%);
+    --color-general-light-theme-10: hsl(216, 100%, 20%);
+
+    --color-general-light-theme-6-opacity-12: hsla(202, 81%, 59%, 12%);
+
+    --color-text-light-theme-opacity-25: hsla(220, 3%, 19%, 25%);
+    --color-text-light-theme-opacity-45: hsla(220, 3%, 19%, 45%);
+    --color-text-light-theme-opacity-65: hsla(220, 3%, 19%, 65%);
+    --color-text-light-theme-opacity-88: hsla(220, 3%, 19%, 88%);
+    --color-text-light-theme-opacity-100: hsla(220, 3%, 19%, 100%);
+
+    --color-general: var(--color-general-light-theme-6);
+    --color-general-light: var(--color-general-light-theme-5);
+    --color-general-lighter: var(--color-general-light-theme-3);
+    --color-general-lightest: var(--color-general-light-theme-2);
+    --color-general-dark: var(--color-general-light-theme-7);
+    --color-general-darker: var(--color-general-light-theme-9);
+    --color-general-darkest: var(--color-general-light-theme-10);
+
+    --color-general-glass: var(--color-general-light-theme-6-opacity-12);
+
+    
+    --color-text-primary: var(--color-text-light-theme-opacity-100);
+    --color-text-regular: var(--color-text-light-theme-opacity-88);
+    --color-text-secondary: var(--color-text-light-theme-opacity-65);
+    --color-text-tertiary: var(--color-text-light-theme-opacity-45);
+    --color-text-quaternary: var(--color-text-light-theme-opacity-25);
+
+    --color-text-placeholder: var(--color-text-tertiary);
+    --color-text-disabled: var(--color-text-tertiary);
+
+
+    --font-size-base: 16px;
+    --font-size-title-1: 2rem;
+    --font-size-title-2: 1.75rem;
+    --font-size-title-3: 1.5rem;
+    --font-size-extra-large: 1.25rem;
+    --font-size-large: 1.125rem;
+    --font-size-middle: 1rem;
+    --font-size-small: 0.875rem;
+    --font-size-extra-small: 0.75rem;
+
+    --height-component: calc(var(--font-size-base) * 2.25);
+    --height-component-large: calc(var(--font-size-base) * 2.75);
+    --height-component-small: calc(var(--font-size-base) * 1.625);
+
+    --gap-extra-large: calc(var(--font-size-base) * 3);
+    --gap-large: calc(var(--font-size-base) * 2);
+    --gap-demi-large: calc(var(--font-size-base) * 1.5);
+    --gap-middle: var(--font-size-base);
+    --gap-demi-small: calc(var(--font-size-base) * 0.75);
+    --gap-small: calc(var(--font-size-base) * 0.5);
+    --gap-extra-small: calc(var(--font-size-base) * 0.25);
+
+    --icon-size-extra-large: calc(var(--font-size-base) * 2);
+    --icon-size-large: calc(var(--font-size-base) * 1.75);
+    --icon-size-middle: calc(var(--font-size-base) * 1.5);
+    --icon-size-small: calc(var(--font-size-base) * 1.25);
+    --icon-size-extra-small: var(--font-size-base);
+
+
+    --animation-speed-base: 1s;
+    --animation-speed-general: calc(var(--animation-speed-base) * 0.5);
+    --animation-speed-button-switch: calc(var(--animation-speed-base) * 0.15);
+}
