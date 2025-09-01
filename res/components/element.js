@@ -1,6 +1,7 @@
 export class FHUIElement extends HTMLElement {
     constructor() {
         super();
+        this.initialized = false;
         this.innerDOM = undefined;
         this.innerTag = 'div';
     }
@@ -57,16 +58,28 @@ export class FHUIElement extends HTMLElement {
         }
     }
 
+    disconnectedCallback() {
+        this.destroy();
+    }
+
+    destroy() {
+        this.initialized = false;
+    }
+
     /**
      * 渲染
      */
     render() {
-        this.innerHTML = this.constructor.template(this.innerHTML);
+        this.setContent(this.innerHTML);
         this.innerDOM = this.querySelector(this.innerTag);
 
         this.constructor.classAttribute.forEach(attr => {
             this.updateClass(attr, this.getAttribute(attr));
         });
+    }
+
+    setContent(content) {
+        this.innerHTML = this.constructor.template(content);
     }
 
     /**

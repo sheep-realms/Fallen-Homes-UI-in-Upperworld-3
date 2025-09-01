@@ -10,6 +10,7 @@
 }
 
 :root {
+    /* 亮色主题色板 */
     --color-general-light-theme-1: hsl(203, 100%, 97%);
     --color-general-light-theme-2: hsl(202, 86%, 91%);
     --color-general-light-theme-3: hsl(201, 82%, 85%);
@@ -81,6 +82,8 @@
     --color-text-light-theme-opacity-88: hsla(220, 3%, 19%, 88%);
     --color-text-light-theme-opacity-100: hsla(220, 3%, 19%, 100%);
 
+
+    /* 颜色名称映射 */
     --color-general: var(--color-general-light-theme-6);
     --color-general-light: var(--color-general-light-theme-5);
     --color-general-lighter: var(--color-general-light-theme-3);
@@ -131,7 +134,30 @@
 
     --color-special-glass: var(--color-special-light-theme-6-opacity-12);
 
+
+    /* 颜色别名兼容 */
+    --color-safe: var(--color-success-light-theme-6);
+    --color-safe-light: var(--color-success-light-theme-5);
+    --color-safe-lighter: var(--color-success-light-theme-3);
+    --color-safe-lightest: var(--color-success-light-theme-2);
+    --color-safe-dark: var(--color-success-light-theme-7);
+    --color-safe-darker: var(--color-success-light-theme-9);
+    --color-safe-darkest: var(--color-success-light-theme-10);
     
+    --color-safe-glass: var(--color-success-light-theme-6-opacity-12);
+
+    --color-warn: var(--color-warning-light-theme-6);
+    --color-warn-light: var(--color-warning-light-theme-5);
+    --color-warn-lighter: var(--color-warning-light-theme-3);
+    --color-warn-lightest: var(--color-warning-light-theme-2);
+    --color-warn-dark: var(--color-warning-light-theme-7);
+    --color-warn-darker: var(--color-warning-light-theme-9);
+    --color-warn-darkest: var(--color-warning-light-theme-10);
+
+    --color-warn-glass: var(--color-warning-light-theme-6-opacity-12);
+
+    
+    /* 文本颜色名称映射 */
     --color-text-primary: var(--color-text-light-theme-opacity-100);
     --color-text-regular: var(--color-text-light-theme-opacity-88);
     --color-text-secondary: var(--color-text-light-theme-opacity-65);
@@ -142,6 +168,7 @@
     --color-text-disabled: var(--color-text-tertiary);
 
 
+    /* 文本尺寸 */
     --font-size-base: 16px;
     --font-size-title-1: 2rem;
     --font-size-title-2: 1.75rem;
@@ -152,10 +179,14 @@
     --font-size-small: 0.875rem;
     --font-size-extra-small: 0.75rem;
 
+
+    /* 组件高度 */
     --height-component: calc(var(--font-size-base) * 2.25);
     --height-component-large: calc(var(--font-size-base) * 2.75);
     --height-component-small: calc(var(--font-size-base) * 1.625);
 
+
+    /* 间距 */
     --gap-extra-large: calc(var(--font-size-base) * 3);
     --gap-large: calc(var(--font-size-base) * 2);
     --gap-demi-large: calc(var(--font-size-base) * 1.5);
@@ -164,6 +195,8 @@
     --gap-small: calc(var(--font-size-base) * 0.5);
     --gap-extra-small: calc(var(--font-size-base) * 0.25);
 
+
+    /* 图标尺寸 */
     --icon-size-extra-large: calc(var(--font-size-base) * 2);
     --icon-size-large: calc(var(--font-size-base) * 1.75);
     --icon-size-middle: calc(var(--font-size-base) * 1.5);
@@ -171,6 +204,7 @@
     --icon-size-extra-small: var(--font-size-base);
 
 
+    /* 动画速度 */
     --animation-speed-base: 1s;
     --animation-speed-general: calc(var(--animation-speed-base) * 0.5);
     --animation-speed-button-switch: calc(var(--animation-speed-base) * 0.15);
