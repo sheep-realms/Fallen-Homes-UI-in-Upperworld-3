@@ -58,6 +58,10 @@ export class FHUIElement extends HTMLElement {
         }
     }
 
+    connectedCallback() {
+        this.render();
+    }
+
     disconnectedCallback() {
         this.destroy();
     }

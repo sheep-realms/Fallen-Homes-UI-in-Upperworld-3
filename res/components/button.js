@@ -4,7 +4,6 @@ class FHUIButton extends FHUIElement {
     constructor() {
         super();
         this.innerTag = 'button';
-        this.render();
     }
 
     static template(content) {
