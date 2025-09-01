@@ -37,7 +37,6 @@ class FHUIButton extends FHUIElement {
 
         this.updateDisabled(this.hasAttribute('disabled'));
 
-        // 绑定事件
         this.innerDOM.addEventListener('click', () => {
             if (this.innerDOM.disabled) return;
             this.dispatchEvent(new CustomEvent('fh-button-click', { bubbles: true }));
@@ -53,9 +52,20 @@ class FHUIButton extends FHUIElement {
 if (!customElements.get('fh-button')) customElements.define('fh-button', FHUIButton);
 
 
-// 工厂函数
+/**
+ * @typedef {Object} ButtonOptions
+ * @property {'general'|'success'|'warning'|'danger'|'special'} color 按钮颜色
+ * @property {'large'|'middle'|'small'} size 按钮尺寸
+ * @property {Boolean} [disabled = false] 是否禁用
+ * @property {Function} onClick 点击时的回调函数
+ * @property {String|HTMLElement} content 按钮内容
+ */
+
+/**
+ * 创建一个按钮
+ * @param {ButtonOptions} options 按钮配置项
+ */
 export function createButton({
-    text = 'Button',
     color = '',
     size = '',
     disabled = false,
@@ -63,7 +73,6 @@ export function createButton({
     content
 } = {}) {
     const el = document.createElement('fh-button');
-    if (text) el.setAttribute('text', text);
     if (color) el.setAttribute('color', color);
     if (size) el.setAttribute('size', size);
     if (disabled) el.setAttribute('disabled', '');

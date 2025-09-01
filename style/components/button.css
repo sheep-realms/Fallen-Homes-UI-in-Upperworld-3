@@ -26,22 +26,22 @@
     filter: brightness(0.85);
 }
 
-.fh-button.fh-safe {
-    --fh-color: var(--color-safe-dark);
-    --fh-color-glass: var(--color-safe-glass);
+.fh-button.fh-color-success {
+    --fh-color: var(--color-success-dark);
+    --fh-color-glass: var(--color-success-glass);
 }
 
-.fh-button.fh-warn {
-    --fh-color: var(--color-warn-dark);
-    --fh-color-glass: var(--color-warn-glass);
+.fh-button.fh-color-warning {
+    --fh-color: var(--color-warning-dark);
+    --fh-color-glass: var(--color-warning-glass);
 }
 
-.fh-button.fh-danger {
+.fh-button.fh-color-danger {
     --fh-color: var(--color-danger-dark);
     --fh-color-glass: var(--color-danger-glass);
 }
 
-.fh-button.fh-special {
+.fh-button.fh-color-special {
     --fh-color: var(--color-special-dark);
     --fh-color-glass: var(--color-special-glass);
 }
@@ -58,19 +58,19 @@
     border: var(--fh-color) 1px var(--border-style);
 }
 
-.fh-button.fh-safe:focus {
-    --color-focus: var(--color-safe-glass);
+.fh-button.fh-color-success:focus {
+    --color-focus: var(--color-success-glass);
 }
 
-.fh-button.fh-warn:focus {
-    --color-focus: var(--color-warn-glass);
+.fh-button.fh-color-warning:focus {
+    --color-focus: var(--color-warning-glass);
 }
 
-.fh-button.fh-danger:focus {
+.fh-button.fh-color-danger:focus {
     --color-focus: var(--color-danger-glass);
 }
 
-.fh-button.fh-special:focus {
+.fh-button.fh-color-special:focus {
     --color-focus: var(--color-special-glass);
 }
 
@@ -140,7 +140,7 @@
     filter: opacity(0.35);
 }
 
-.fh-button.fh-size-big {
+.fh-button.fh-size-large {
     height: var(--height-component-large);
     line-height: calc(var(--height-component-large) - 2px);
     padding: 0 15px;
@@ -164,19 +164,19 @@
     animation: fh-effect-click .6s 1;
 }
 
-.fh-button.fh-safe.fh-effect-click {
-    --effect-color: var(--color-safe-glass);
+.fh-button.fh-color-success.fh-effect-click {
+    --effect-color: var(--color-success-glass);
 }
 
-.fh-button.fh-warn.fh-effect-click {
-    --effect-color: var(--color-warn-glass);
+.fh-button.fh-color-warning.fh-effect-click {
+    --effect-color: var(--color-warning-glass);
 }
 
-.fh-button.fh-danger.fh-effect-click {
+.fh-button.fh-color-danger.fh-effect-click {
     --effect-color: var(--color-danger-glass);
 }
 
-.fh-button.fh-special.fh-effect-click {
+.fh-button.fh-color-special.fh-effect-click {
     --effect-color: var(--color-special-glass);
 }
 
@@ -207,27 +207,27 @@
     --icon-fill-color: var(--color-general-dark);
 }
 
-.fh-icon-button.fh-safe.fh-type-ghost svg,
-.fh-icon-button.fh-safe.fh-type-dashed svg,
-.fh-icon-button.fh-safe.fh-type-air svg {
-    --icon-fill-color: var(--color-safe-dark);
+.fh-icon-button.fh-color-success.fh-type-ghost svg,
+.fh-icon-button.fh-color-success.fh-type-dashed svg,
+.fh-icon-button.fh-color-success.fh-type-air svg {
+    --icon-fill-color: var(--color-success-dark);
 }
 
-.fh-icon-button.fh-warn.fh-type-ghost svg,
-.fh-icon-button.fh-warn.fh-type-dashed svg,
-.fh-icon-button.fh-warn.fh-type-air svg {
-    --icon-fill-color: var(--color-warn-dark);
+.fh-icon-button.fh-color-warning.fh-type-ghost svg,
+.fh-icon-button.fh-color-warning.fh-type-dashed svg,
+.fh-icon-button.fh-color-warning.fh-type-air svg {
+    --icon-fill-color: var(--color-warning-dark);
 }
 
-.fh-icon-button.fh-danger.fh-type-ghost svg,
-.fh-icon-button.fh-danger.fh-type-dashed svg,
-.fh-icon-button.fh-danger.fh-type-air svg {
+.fh-icon-button.fh-color-danger.fh-type-ghost svg,
+.fh-icon-button.fh-color-danger.fh-type-dashed svg,
+.fh-icon-button.fh-color-danger.fh-type-air svg {
     --icon-fill-color: var(--color-danger-dark);
 }
 
-.fh-icon-button.fh-special.fh-type-ghost svg,
-.fh-icon-button.fh-special.fh-type-dashed svg,
-.fh-icon-button.fh-special.fh-type-air svg {
+.fh-icon-button.fh-color-special.fh-type-ghost svg,
+.fh-icon-button.fh-color-special.fh-type-dashed svg,
+.fh-icon-button.fh-color-special.fh-type-air svg {
     --icon-fill-color: var(--color-special-dark);
 }
 
