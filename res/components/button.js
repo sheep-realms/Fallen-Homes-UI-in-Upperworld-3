@@ -52,7 +52,7 @@ if (!customElements.get('fh-button')) customElements.define('fh-button', FHUIBut
 
 
 /**
- * @typedef {Object} ButtonOptions
+ * @typedef {Object} FHUIButtonOptions
  * @property {'general'|'success'|'warning'|'danger'|'special'} color 按钮颜色
  * @property {'large'|'middle'|'small'} size 按钮尺寸
  * @property {Boolean} [disabled = false] 是否禁用
@@ -62,7 +62,7 @@ if (!customElements.get('fh-button')) customElements.define('fh-button', FHUIBut
 
 /**
  * 创建一个按钮
- * @param {ButtonOptions} options 按钮配置项
+ * @param {FHUIButtonOptions} options 按钮配置项
  */
 export function createButton({
     color = '',
