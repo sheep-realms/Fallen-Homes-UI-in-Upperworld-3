@@ -4,7 +4,7 @@
     height: var(--height-component);
     line-height: var(--height-component);
     padding: 0 0.75em;
-    margin: 0 3px;
+    margin: 0;
     font-size: var(--font-size-small);
     color: #FFF;
     border: none;
@@ -156,7 +156,7 @@
 .fh-button.fh-block {
     display: block;
     width: calc(100% - 10px);
-    margin: 10px 5px;
+    /* margin: 10px 5px; */
 }
 
 .fh-button.fh-effect-click {
