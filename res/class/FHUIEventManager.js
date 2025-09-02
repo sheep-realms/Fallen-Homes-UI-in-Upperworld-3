@@ -15,13 +15,13 @@ export class FHUIEventManager {
      * @param {boolean} once 是否只执行一次
      */
     on(type, callback, once = false) {
-        if (!this.element.innerDOM) return;
+        if (!this.element._innerDOM) return;
 
         const [eventType, namespace] = type.split('.');
         if (!this.events[eventType]) {
             this.events[eventType] = [];
             // 绑定一次原生监听器
-            this.element.innerDOM.addEventListener(eventType, e => {
+            this.element._innerDOM.addEventListener(eventType, e => {
                 this.events[eventType].forEach(listener => {
                     listener.callback(e);
                     if (listener.once) {
@@ -72,8 +72,8 @@ export class FHUIEventManager {
      * @param {any} detail 附加数据
      */
     emit(type, detail = null) {
-        if (!this.element.innerDOM) return;
+        if (!this.element._innerDOM) return;
         const event = new CustomEvent(type, { detail, bubbles: true });
-        this.element.innerDOM.dispatchEvent(event);
+        this.element._innerDOM.dispatchEvent(event);
     }
 }

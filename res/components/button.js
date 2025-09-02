@@ -6,46 +6,30 @@ class FHUIButton extends FHUIElement {
         this.innerTag = 'button';
     }
 
+    static get props() {
+        return {
+            ...super.props,
+            disabled: { type: Boolean, default: false },
+            block: { type: Boolean, default: false, isClass: true },
+            color: { type: String, default: 'general', isClass: true },
+            size: { type: String, default: 'medium', isClass: true },
+            type: { type: String, default: 'default', isClass: true }
+        };
+    }
+
     static template(content) {
-        return `<button class="fh-button">${content}</button>`;
+        return `<button class="fh-button">${content || ''}</button>`;
     }
 
-    static get classAttribute() {
-        return ['color', 'size', 'type'];
-    }
-
-    static get customAttributes() {
-        return [...super.customAttributes, 'disabled'];
-    }
-
-    attributeChangedCallback(name, oldVal, newVal) {
-        if (super.attributeChangedCallback()) return true;
-
-        switch (name) {
-            case 'disabled':
-                this.updateDisabled(newVal !== null);
-                return true;
-                
-            default:
-                return false;
+    _onPropChange(name, value) {
+        if (name === 'disabled' && this._innerDOM) {
+            this._innerDOM.disabled = value;
         }
     }
 
-    render() {
-        super.render();
-
-        this.updateDisabled(this.hasAttribute('disabled'));
-
-        this.innerDOM.addEventListener('click', () => {
-            if (this.innerDOM.disabled) return;
-            this.dispatchEvent(new CustomEvent('fh-button-click', { bubbles: true }));
-        });
-    }
-
-    updateDisabled(isDisabled) {
-        if (!this.innerDOM) return;
-        this.innerDOM.disabled = isDisabled;
-    }
+    // render() {
+    //     super.render();
+    // }
 }
 
 if (!customElements.get('fh-button')) customElements.define('fh-button', FHUIButton);
@@ -54,7 +38,7 @@ if (!customElements.get('fh-button')) customElements.define('fh-button', FHUIBut
 /**
  * @typedef {Object} FHUIButtonOptions
  * @property {'general'|'success'|'warning'|'danger'|'special'} color 按钮颜色
- * @property {'large'|'middle'|'small'} size 按钮尺寸
+ * @property {'large'|'medium'|'small'} size 按钮尺寸
  * @property {Boolean} [disabled = false] 是否禁用
  * @property {Function} onClick 点击时的回调函数
  * @property {String|HTMLElement} content 按钮内容

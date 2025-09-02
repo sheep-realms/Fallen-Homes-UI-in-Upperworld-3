@@ -175,7 +175,7 @@
     --font-size-title-3: 1.5rem;
     --font-size-extra-large: 1.25rem;
     --font-size-large: 1.125rem;
-    --font-size-middle: 1rem;
+    --font-size-medium: 1rem;
     --font-size-small: 0.875rem;
     --font-size-extra-small: 0.75rem;
 
@@ -190,7 +190,7 @@
     --gap-extra-large: calc(var(--font-size-base) * 3);
     --gap-large: calc(var(--font-size-base) * 2);
     --gap-demi-large: calc(var(--font-size-base) * 1.5);
-    --gap-middle: var(--font-size-base);
+    --gap-medium: var(--font-size-base);
     --gap-demi-small: calc(var(--font-size-base) * 0.75);
     --gap-small: calc(var(--font-size-base) * 0.5);
     --gap-extra-small: calc(var(--font-size-base) * 0.25);
@@ -199,7 +199,7 @@
     /* 图标尺寸 */
     --icon-size-extra-large: calc(var(--font-size-base) * 2);
     --icon-size-large: calc(var(--font-size-base) * 1.75);
-    --icon-size-middle: calc(var(--font-size-base) * 1.5);
+    --icon-size-medium: calc(var(--font-size-base) * 1.5);
     --icon-size-small: calc(var(--font-size-base) * 1.25);
     --icon-size-extra-small: var(--font-size-base);
 

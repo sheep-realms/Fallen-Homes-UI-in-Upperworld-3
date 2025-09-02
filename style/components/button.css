@@ -144,7 +144,7 @@
     height: var(--height-component-large);
     line-height: calc(var(--height-component-large) - 2px);
     padding: 0 15px;
-    font-size: var(--font-size-middle);
+    font-size: var(--font-size-medium);
 }
 
 .fh-button.fh-size-small {
