@@ -1,9 +1,12 @@
+import { FHUIEventManager } from "../class/FHUIEventManager.js";
+
 export class FHUIElement extends HTMLElement {
     constructor() {
         super();
         this.initialized = false;
         this.innerDOM = undefined;
         this.innerTag = 'div';
+        this.event = new FHUIEventManager(this);
     }
 
     /**
@@ -68,22 +71,29 @@ export class FHUIElement extends HTMLElement {
 
     destroy() {
         this.initialized = false;
+        this.offAll();
     }
 
     /**
      * 渲染
      */
     render() {
-        this.setContent(this.innerHTML);
+        this.setContent(this.innerHTML, true);
         this.innerDOM = this.querySelector(this.innerTag);
 
         this.constructor.classAttribute.forEach(attr => {
             this.updateClass(attr, this.getAttribute(attr));
         });
+        
+        this.initialized = true;
     }
 
-    setContent(content) {
-        this.innerHTML = this.constructor.template(content);
+    setContent(content, isInit = false) {
+        if (isInit) {
+            this.innerHTML = this.constructor.template(content);
+        } else {
+            this.innerDOM.innerHTML = content;
+        }
     }
 
     /**
