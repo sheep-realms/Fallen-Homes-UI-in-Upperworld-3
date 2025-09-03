@@ -5,10 +5,11 @@ export class FHUIElement extends HTMLElement {
         super();
         this._initialized = false;
         this._innerDOM = undefined;
-        this.innerTag = 'div';
-        this.event = new FHUIEventManager(this);
+        this._innerTag = 'div';
         this._props = {};
         this._pendingUpdates = [];
+        this.event = new FHUIEventManager(this);
+
         this._initProps();
     }
 
@@ -167,15 +168,15 @@ export class FHUIElement extends HTMLElement {
 
     destroy() {
         this.initialized = false;
-        this.offAll();
+        this.event.offAll();
     }
 
     /**
      * 渲染
      */
     render() {
-        this.setContent(this.innerHTML, true);
-        this._innerDOM = this.querySelector(this.innerTag);
+        if (this.getAttribute('initialized') === null) this.setContent(this.innerHTML, true);
+        this._innerDOM = this.querySelector(this._innerTag);
 
         // 初始化 classPrefix
         const propsConfig = this.constructor.props;
@@ -191,6 +192,7 @@ export class FHUIElement extends HTMLElement {
         });
         this._pendingUpdates = [];
 
+        this.setAttribute('initialized', '');
         this._initialized = true;
     }
 

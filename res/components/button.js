@@ -1,9 +1,9 @@
 import { FHUIElement } from './element.js';
 
-class FHUIButton extends FHUIElement {
+export class FHUIButton extends FHUIElement {
     constructor() {
         super();
-        this.innerTag = 'button';
+        this._innerTag = 'button';
     }
 
     static get props() {
