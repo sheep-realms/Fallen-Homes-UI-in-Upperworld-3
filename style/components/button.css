@@ -6,6 +6,7 @@
     line-height: var(--fh-height);
     padding: 0 0.75em;
     margin: 0;
+    min-width: var(--fh-height);
     font-size: var(--font-size-small);
     color: #FFF;
     border: none;
