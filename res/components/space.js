@@ -13,7 +13,7 @@ export class FHUISpace extends FHUIElement {
             justify: { type: String, default: 'start', isClass: true },
             reverse: { type: Boolean, default: false, isClass: true },
             size: { type: String, default: 'medium', isClass: true },
-            vertical: { type: Boolean, default: false, isClass: true },
+            vertical: { type: Boolean, default: false, isClass: true }
         };
     }
 

@@ -1,8 +1,9 @@
 .fh-button {
     --fh-color: var(--color-general-dark);
     --fh-color-glass: var(--color-general-glass);
-    height: var(--height-component);
-    line-height: var(--height-component);
+    --fh-height: var(--height-component);
+    height: var(--fh-height);
+    line-height: var(--fh-height);
     padding: 0 0.75em;
     margin: 0;
     font-size: var(--font-size-small);
@@ -15,6 +16,7 @@
     background-image: var(--corner-marker);
     background-repeat: no-repeat;
     transition: filter var(--animation-speed-button-switch), background-color var(--animation-speed-button-switch), box-shadow var(--animation-speed-button-switch);
+    user-select: none;
 }
 
 .fh-button:hover:not(.fh-disabled, :disabled) {
@@ -76,9 +78,9 @@
 
 
 .fh-button.fh-type-ghost {
-    height: var(--height-component);
-    line-height: calc(var(--height-component) - 2px);
-    padding: 0 9px;
+    height: var(--fh-height);
+    line-height: calc(var(--fh-height) - 2px);
+    padding: 0 calc(0.75em - 1px);
     color: var(--fh-color);
     --border-style: solid;
     border: var(--fh-color) 1px var(--border-style);
@@ -89,9 +91,9 @@
 }
 
 .fh-button.fh-type-dashed {
-    height: var(--height-component);
-    line-height: calc(var(--height-component) - 2px);
-    padding: 0 9px;
+    height: var(--fh-height);
+    line-height: calc(var(--fh-height) - 2px);
+    padding: 0 calc(0.75em - 1px);
     color: var(--fh-color);
     --border-style: dashed;
     border: var(--fh-color) 1px dashed;
@@ -102,9 +104,9 @@
 }
 
 .fh-button.fh-type-air {
-    height: var(--height-component);
-    line-height: var(--height-component);
-    padding: 0 10px;
+    height: var(--fh-height);
+    line-height: calc(var(--fh-height) - 2px);
+    padding: 0 0.75em;
     color: var(--fh-color);
     --border-style: dashed;
     border: transparent 1px solid;
@@ -141,15 +143,13 @@
 }
 
 .fh-button.fh-size-large {
-    height: var(--height-component-large);
-    line-height: calc(var(--height-component-large) - 2px);
+    --fh-height: var(--height-component-large);
     padding: 0 15px;
     font-size: var(--font-size-medium);
 }
 
 .fh-button.fh-size-small {
-    height: var(--height-component-small);
-    line-height: calc(var(--height-component-small) - 2px);
+    --fh-height: var(--height-component-small);
     padding: 0 8px;
 }
 
@@ -234,4 +234,86 @@
 @keyframes fh-effect-click {
     0% { box-shadow: 0 0 0 0 var(--effect-color); filter: brightness(1.3); }
     100% { box-shadow: 0 0 0 16px transparent; filter: brightness(1); }
+}
+
+
+
+.fh-button-group {
+    display: inline-flex;
+    gap: 1px;
+}
+
+.fh-button-group.fh-reverse {
+    flex-direction: row-reverse;
+}
+
+.fh-button-group.fh-vertical {
+    flex-flow: column;
+}
+
+.fh-button-group.fh-vertical.fh-reverse {
+    flex-direction: column-reverse;
+}
+
+.fh-button-group.fh-type-ghost,
+.fh-button-group.fh-type-dashed {
+    gap: 0;
+}
+
+.fh-button-group.fh-type-ghost:not(.fh-vertical)>fh-button:first-child>.fh-button,
+.fh-button-group.fh-type-dashed:not(.fh-vertical)>fh-button:first-child>.fh-button {
+    padding: 0 calc(0.75em - 0.5px);
+}
+
+.fh-button-group.fh-type-ghost:not(.fh-vertical)>fh-button:not(:first-child, :last-child)>.fh-button,
+.fh-button-group.fh-type-dashed:not(.fh-vertical)>fh-button:not(:first-child, :last-child)>.fh-button {
+    padding: 0 0.75em;
+}
+
+.fh-button-group.fh-type-ghost:not(.fh-vertical)>fh-button:last-child>.fh-button,
+.fh-button-group.fh-type-dashed:not(.fh-vertical)>fh-button:last-child>.fh-button {
+    padding: 0 calc(0.75em - 0.5px);
+}
+
+.fh-button-group.fh-type-ghost:not(.fh-vertical, .fh-reverse)>fh-button:not(:first-child)>.fh-button,
+.fh-button-group.fh-type-dashed:not(.fh-vertical, .fh-reverse)>fh-button:not(:first-child)>.fh-button,
+.fh-button-group.fh-type-ghost.fh-reverse:not(.fh-vertical)>fh-button:not(:last-child)>.fh-button,
+.fh-button-group.fh-type-dashed.fh-reverse:not(.fh-vertical)>fh-button:not(:last-child)>.fh-button {
+    margin-inline-start: -1px;
+}
+
+.fh-button-group.fh-type-ghost.fh-vertical>fh-button:first-child>.fh-button,
+.fh-button-group.fh-type-dashed.fh-vertical>fh-button:first-child>.fh-button {
+    --fh-height: calc(var(--height-component) + 1px);
+}
+
+.fh-button-group.fh-type-ghost.fh-vertical>fh-button:not(:first-child, :last-child)>.fh-button,
+.fh-button-group.fh-type-dashed.fh-vertical>fh-button:not(:first-child, :last-child)>.fh-button {
+    --fh-height: calc(var(--height-component) + 2px);
+}
+
+.fh-button-group.fh-type-ghost.fh-vertical>fh-button:last-child>.fh-button,
+.fh-button-group.fh-type-dashed.fh-vertical>fh-button:last-child>.fh-button {
+    --fh-height: calc(var(--height-component) + 1px);
+}
+
+.fh-button-group.fh-type-ghost.fh-vertical:not(.fh-reverse)>fh-button:not(:first-child)>.fh-button,
+.fh-button-group.fh-type-dashed.fh-vertical:not(.fh-reverse)>fh-button:not(:first-child)>.fh-button,
+.fh-button-group.fh-type-ghost.fh-vertical.fh-reverse>fh-button:not(:last-child)>.fh-button,
+.fh-button-group.fh-type-dashed.fh-vertical.fh-reverse>fh-button:not(:last-child)>.fh-button {
+    margin-block-start: -1px;
+}
+
+.fh-button-group>fh-button>.fh-button {
+    background-image: none !important;
+}
+
+.fh-button-group:not(.fh-vertical, .fh-reverse)>fh-button:last-child>.fh-button,
+.fh-button-group.fh-vertical.fh-reverse>fh-button:last-child>.fh-button {
+    background-image: var(--corner-marker) !important;
+}
+
+.fh-button-group.fh-vertical:not(.fh-reverse)>fh-button:first-child>.fh-button,
+.fh-button-group:not(.fh-vertical).fh-reverse>fh-button:first-child>.fh-button {
+    background-image: var(--corner-marker) !important;
 }

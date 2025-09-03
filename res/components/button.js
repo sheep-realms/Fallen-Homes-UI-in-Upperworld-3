@@ -35,6 +35,107 @@ export class FHUIButton extends FHUIElement {
 if (!customElements.get('fh-button')) customElements.define('fh-button', FHUIButton);
 
 
+
+export class FHUIButtonGroup extends FHUIElement {
+    constructor() {
+        super();
+        this._innerTag = 'div';
+    }
+
+    static get props() {
+        return {
+            ...super.props,
+            disabled: { type: Boolean, default: false },
+            block: { type: Boolean, default: false, isClass: true },
+            color: { type: String, default: 'general', isClass: true },
+            reverse: { type: Boolean, default: false, isClass: true },
+            size: { type: String, default: 'medium', isClass: true },
+            type: { type: String, default: 'default', isClass: true },
+            vertical: { type: Boolean, default: false, isClass: true }
+        };
+    }
+
+    static template(content) {
+        return `<div class="fh-button-group">${content || ''}</div>`;
+    }
+
+    /**
+     * 属性变化回调
+     * 这里扩展以同步属性到子元素
+     */
+    _onPropChange(name, value) {
+        if (!this._innerDOM) return;
+
+        // 获取所有 fh-button 子元素
+        const buttons = this._innerDOM.querySelectorAll('fh-button');
+
+        switch (name) {
+            case 'disabled':
+                buttons.forEach(btn => {
+                    if (value) {
+                        btn.setAttribute('disabled', '');
+                    } else {
+                        btn.removeAttribute('disabled');
+                    }
+                });
+                break;
+
+            case 'color':
+                buttons.forEach(btn => {
+                    if (!btn.hasAttribute('color')) {
+                        btn.setAttribute('color', value);
+                    }
+                });
+                break;
+
+            case 'type':
+                buttons.forEach(btn => {
+                    btn.setAttribute('type', value);
+                });
+                break;
+
+            case 'size':
+                buttons.forEach(btn => {
+                    btn.setAttribute('size', value);
+                });
+                break;
+        }
+    }
+
+    /**
+     * 初始化完成后，给初始的子按钮应用属性
+     */
+    connectedCallback() {
+        super.connectedCallback();
+        this._syncPropsToChildren();
+    }
+
+    /**
+     * 当插槽或 DOM 动态变化时，同步属性
+     * 例如用户动态插入 fh-button
+     */
+    _syncPropsToChildren() {
+        if (!this._innerDOM) return;
+
+        const buttons = this._innerDOM.querySelectorAll('fh-button');
+        const disabled = this._props.disabled;
+        const color = this._props.color;
+        const size = this._props.size;
+
+        buttons.forEach(btn => {
+            if (disabled) btn.setAttribute('disabled', '');
+            else btn.removeAttribute('disabled');
+
+            if (!btn.hasAttribute('color')) btn.setAttribute('color', color);
+            btn.setAttribute('size', size);
+        });
+    }
+}
+
+
+if (!customElements.get('fh-button-group')) customElements.define('fh-button-group', FHUIButtonGroup);
+
+
 /**
  * @typedef {Object} FHUIButtonOptions
  * @property {'general'|'success'|'warning'|'danger'|'special'} color 按钮颜色
