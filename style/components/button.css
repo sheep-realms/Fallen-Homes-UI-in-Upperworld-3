@@ -2,9 +2,10 @@
     --fh-color: var(--color-general-dark);
     --fh-color-glass: var(--color-general-glass);
     --fh-height: var(--height-component);
+    appearance: none;
     height: var(--fh-height);
     line-height: var(--fh-height);
-    padding: 0 0.75em;
+    padding: 0 var(--gap-demi-small);
     margin: 0;
     min-width: var(--fh-height);
     font-size: var(--font-size-small);
@@ -97,7 +98,7 @@
 .fh-button.fh-type-ghost {
     height: var(--fh-height);
     line-height: calc(var(--fh-height) - 2px);
-    padding: 0 calc(0.75em - 1px);
+    padding: 0 calc(var(--gap-demi-small) - 1px);
     color: var(--fh-color);
     --border-style: solid;
     border: var(--fh-color) 1px var(--border-style);
@@ -111,7 +112,7 @@
 .fh-button.fh-type-dashed {
     height: var(--fh-height);
     line-height: calc(var(--fh-height) - 2px);
-    padding: 0 calc(0.75em - 1px);
+    padding: 0 calc(var(--gap-demi-small) - 1px);
     color: var(--fh-color);
     --border-style: dashed;
     border: var(--fh-color) 1px dashed;
@@ -123,7 +124,7 @@
 .fh-button.fh-type-air {
     height: var(--fh-height);
     line-height: calc(var(--fh-height) - 2px);
-    padding: 0 0.75em;
+    padding: 0 var(--gap-demi-small);
     color: var(--fh-color);
     --border-style: dashed;
     border: transparent 1px solid;
@@ -286,17 +287,17 @@
 
 .fh-button-group.fh-type-ghost:not(.fh-vertical)>fh-button:first-child>.fh-button,
 .fh-button-group.fh-type-dashed:not(.fh-vertical)>fh-button:first-child>.fh-button {
-    padding: 0 calc(0.75em - 0.5px);
+    padding: 0 calc(var(--gap-demi-small) - 0.5px);
 }
 
 .fh-button-group.fh-type-ghost:not(.fh-vertical)>fh-button:not(:first-child, :last-child)>.fh-button,
 .fh-button-group.fh-type-dashed:not(.fh-vertical)>fh-button:not(:first-child, :last-child)>.fh-button {
-    padding: 0 0.75em;
+    padding: 0 var(--gap-demi-small);
 }
 
 .fh-button-group.fh-type-ghost:not(.fh-vertical)>fh-button:last-child>.fh-button,
 .fh-button-group.fh-type-dashed:not(.fh-vertical)>fh-button:last-child>.fh-button {
-    padding: 0 calc(0.75em - 0.5px);
+    padding: 0 calc(var(--gap-demi-small) - 0.5px);
 }
 
 .fh-button-group.fh-type-ghost:not(.fh-vertical, .fh-reverse)>fh-button:not(:first-child)>.fh-button,
