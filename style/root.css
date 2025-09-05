@@ -2,11 +2,11 @@
     margin: 0;
     padding: 0;
 
-    --corner-marker-color: rgba(255, 255, 255, 0.5);
+    /* --corner-marker-color: rgba(255, 255, 255, 0.5);
     --corner-marker-angle: -135deg;
     --corner-marker-angle-reverse: 45deg;
     --corner-marker: linear-gradient(var(--corner-marker-angle), var(--corner-marker-color) 5px, transparent 5px);
-    --corner-marker-black: linear-gradient(-135deg, #CCC 5px, transparent 5px);
+    --corner-marker-black: linear-gradient(-135deg, #CCC 5px, transparent 5px); */
 }
 
 :root {
@@ -206,6 +206,18 @@
 
     /* 动画速度 */
     --animation-speed-base: 1s;
-    --animation-speed-general: calc(var(--animation-speed-base) * 0.5);
-    --animation-speed-button-switch: calc(var(--animation-speed-base) * 0.15);
+    --animation-speed-slow: calc(var(--animation-speed-base) * 0.7);
+    --animation-speed-demi-slow: calc(var(--animation-speed-base) * 0.5);
+    --animation-speed-medium: calc(var(--animation-speed-base) * 0.3);
+    --animation-speed-fast: calc(var(--animation-speed-base) * 0.15);
+    
+    --animation-speed-button-switch: var(--animation-speed-fast);
+
+
+    --fh-corner-marker-color: rgba(255, 255, 255, 0.5);
+    --fh-corner-marker-angle: -135deg;
+    --fh-corner-marker-angle-reverse: 45deg;
+    --fh-corner-marker: linear-gradient(var(--fh-corner-marker-angle), var(--fh-corner-marker-color) 5px, transparent 5px);
+    --fh-corner-marker-border-width: 4px;
+    --fh-corner-marker-border-color: var(--fh-corner-marker-color) var(--fh-corner-marker-color) transparent transparent;
 }
