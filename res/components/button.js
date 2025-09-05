@@ -53,8 +53,8 @@ if (!customElements.get('fh-button')) customElements.define('fh-button', FHUIBut
 
 
 export class FHUIButtonGroup extends FHUIElement {
-    constructor() {
-        super();
+    constructor({ content, ...props } = {}) {
+        super({ content, ...props });
         this._innerTag = 'div';
     }
 
