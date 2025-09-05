@@ -1,9 +1,25 @@
 import { FHUIElement } from './element.js';
 
+/**
+ * @typedef {Object} FHUIButtonOptions
+ * @property {String|HTMLElement} content 内容
+ * @property {Boolean} [block = false] 是否为块级元素
+ * @property {'general'|'success'|'warning'|'danger'|'special'} [color = 'general'] 按钮颜色
+ * @property {'large'|'medium'|'small'} [size = 'medium'] 按钮尺寸
+ * @property {'default'|'ghost'|'dashed'|'air'} [type = 'default'] 按钮类型
+ * @property {Boolean} [disabled = false] 是否禁用
+ */
+
 export class FHUIButton extends FHUIElement {
-    constructor() {
-        super();
+    /**
+     * 按钮
+     * @param {FHUIButtonOptions} options 按钮配置项
+     */
+    constructor({ content, ...props } = {}) {
+        super({ content, ...props });
         this._innerTag = 'button';
+
+        this._inputProps(props);
     }
 
     static get props() {
@@ -134,33 +150,3 @@ export class FHUIButtonGroup extends FHUIElement {
 
 
 if (!customElements.get('fh-button-group')) customElements.define('fh-button-group', FHUIButtonGroup);
-
-
-/**
- * @typedef {Object} FHUIButtonOptions
- * @property {'general'|'success'|'warning'|'danger'|'special'} color 按钮颜色
- * @property {'large'|'medium'|'small'} size 按钮尺寸
- * @property {Boolean} [disabled = false] 是否禁用
- * @property {Function} onClick 点击时的回调函数
- * @property {String|HTMLElement} content 按钮内容
- */
-
-/**
- * 创建一个按钮
- * @param {FHUIButtonOptions} options 按钮配置项
- */
-export function createButton({
-    color = '',
-    size = '',
-    disabled = false,
-    onClick,
-    content
-} = {}) {
-    const el = document.createElement('fh-button');
-    if (color) el.setAttribute('color', color);
-    if (size) el.setAttribute('size', size);
-    if (disabled) el.setAttribute('disabled', '');
-    if (content) el.innerHTML = FHUIButton.template(content);
-    if (onClick) el.addEventListener('fh-button-click', onClick);
-    return el;
-}

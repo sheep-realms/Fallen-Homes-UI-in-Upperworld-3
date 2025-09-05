@@ -1,7 +1,7 @@
 import { FHUIEventManager } from "../class/FHUIEventManager.js";
 
 export class FHUIElement extends HTMLElement {
-    constructor() {
+    constructor({ content, ...props } = {}) {
         super();
         this._initialized = false;
         this._innerDOM = undefined;
@@ -10,6 +10,9 @@ export class FHUIElement extends HTMLElement {
         this._pendingUpdates = [];
         this.event = new FHUIEventManager(this);
 
+        if (content !== undefined) this.innerHTML = this.constructor.extractOuterHTML(content);
+
+        this._inputProps(props);
         this._initProps();
     }
 
@@ -33,6 +36,28 @@ export class FHUIElement extends HTMLElement {
      */
     static get observedAttributes() {
         return Object.keys(this.props || {});
+    }
+
+    static extractOuterHTML(value) {
+        if (value instanceof HTMLElement) {
+            console.log(111111111);
+            
+            return value.outerHTML;
+        }
+
+        if (value instanceof NodeList || Array.isArray(value)) {
+            return Array.from(value)
+                .map(node => (node instanceof HTMLElement ? node.outerHTML : ''))
+                .join('');
+        }
+
+        return value;
+    }
+
+    _inputProps(props) {
+        for (const [k, v] of Object.entries(props)) {
+            this[k] = v;
+        }
     }
 
     _initProps() {
